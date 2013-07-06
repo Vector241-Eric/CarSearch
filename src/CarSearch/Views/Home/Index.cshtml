@@ -1,0 +1,23 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Car Search";
+    Layout = "~/Views/Shared/_Master.cshtml";
+}
+
+<h2>Car Search</h2>
+
+
+<label for="VIN">VIN: </label><input type="text" name="VIN" id="vin"/><a class="btn" id="show-sticker" href="javascript:void(0)">Show Sticker</a>
+
+<script>
+    var url = 'http://www.inventory.ford.com/services/inventory/WindowSticker.pdf?vin=';
+    var url2 = '&refid=FD';
+    $(function () {
+        $('#show-sticker').click(function () {
+            var vin = $('#vin').val().trim();
+            var vinUrl = url + vin + url2;
+            window.open(vinUrl, '_blank');
+        });
+    });
+</script>
